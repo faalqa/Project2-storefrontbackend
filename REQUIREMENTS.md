@@ -6,37 +6,93 @@ These are the notes from a meeting with the frontend developer that describe wha
 ## API Endpoints
 #### Products
 - Index 
+    get('/products')
 - Show
+    get('/products/:id')
+
 - Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+    Request Body:
+        post('/products') 
+        Request body:
+        {
+            "name": "Product name",
+            "price": "100"
+        }
 
 #### Users
 - Index [token required]
+    get('/users')
+
 - Show [token required]
-- Create N[token required]
+    get('/users/:id')
+
+- Create 
+    Request Body:
+        post('/users') 
+        Request body:
+        {
+            "firstname": "Fai",
+            "lastname": "Alqarni",
+            "email": "fai@email.com",
+            "password": "12345678"
+        }
+
+- Login 
+    Request Body:
+        post('/login') 
+        Request body:
+        {
+            "email": "fai@email.com",
+            "password": "12345678"
+        }
 
 #### Orders
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Create order [token required]
+    Request Body:
+        post('/orders')
+        Request body:
+        {
+            "user_id": 1,
+            "status": "Active"
+        }
+
+- Add Product to Cart [token required]
+    Request Body:
+        post('/carts')
+        Request body:
+        {
+            "order_id": 1,
+            "product_id": 1,
+            "quantity": 1
+        }
+
+- Show Cart [token required]
+    get('/carts/:id')
 
 ## Data Shapes
 #### Product
--  id
+- id
 - name
 - price
-- [OPTIONAL] category
 
 #### User
 - id
 - firstName
 - lastName
+- email
 - password
 
 #### Orders
 - id
-- id of each product in the order
-- quantity of each product in the order
 - user_id
-- status of order (active or complete)
+- status (active or complete)
+
+#### Cart
+- id
+- order_id
+- product_id
+- quantity of product
+
+
+## Database Schema
 
