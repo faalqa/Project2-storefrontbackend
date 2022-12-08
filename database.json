@@ -1,19 +1,19 @@
 {
-  "defaultEnv": {"ENV": "NODE_ENV"},
+  "defaultEnv": {"ENV": "ENV"},
   "dev": {
-    "database": {"ENV": "DB_NAME"},
-    "user": {"ENV": "DB_USERNAME"},
-    "password": {"ENV": "DB_PASSWORD"},
-    "host": {"ENV": "DB_HOST"},
+    "database": {"ENV": "POSTGRESS_DB"},
+    "user": {"ENV": "POSTGRESS_USER"},
+    "password": {"ENV": "POSTGRESS_PASSWORD"},
+    "host": {"ENV": "POSTGRESS_HOST"},
     "port": "5432",
     "driver": "pg"
   },
 
   "test": {
-    "database": {"ENV": "DB_TEST_NAME"},
-    "user": {"ENV": "DB_USERNAME"},
-    "password": {"ENV": "DB_PASSWORD"},
-    "host": {"ENV": "DB_HOST"},
+    "database": {"ENV": "POSTGRESS_TEST_DB"},
+    "user": {"ENV": "POSTGRESS_USER"},
+    "password": {"ENV": "POSTGRESS_PASSWORD"},
+    "host": {"ENV": "POSTGRESS_HOST"},
     "port": "5432",
     "driver": "pg"
   }
