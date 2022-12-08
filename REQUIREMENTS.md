@@ -5,69 +5,48 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index 
-    get('/products')
-- Show
-    get('/products/:id')
-
-- Create [token required]
+- Index route: '/products' [GET]
+- Show route: '/products/:id' [GET]
+- Create route: '/products' [POST] [token required]
     Request Body:
-        post('/products') 
-        Request body:
         {
             "name": "Product name",
             "price": "100"
         }
 
 #### Users
-- Index [token required]
-    get('/users')
-
-- Show [token required]
-    get('/users/:id')
-
-- Create 
+- Index route '/users' [GET] [token required]
+- Show route: '/users/:id' [GET] [token required]
+- Create route: '/users' [POST]
     Request Body:
-        post('/users') 
-        Request body:
         {
             "firstname": "Fai",
             "lastname": "Alqarni",
             "email": "fai@email.com",
             "password": "12345678"
         }
-
-- Login 
+- Login route: '/login' [POST]
     Request Body:
-        post('/login') 
-        Request body:
         {
             "email": "fai@email.com",
             "password": "12345678"
         }
 
 #### Orders
-- Create order [token required]
+- Create order route: '/orders' [POST] [token required]
     Request Body:
-        post('/orders')
-        Request body:
         {
             "user_id": 1,
             "status": "Active"
         }
-
-- Add Product to Cart [token required]
+- Add Product to Cart route: '/carts' [POST] [token required]
     Request Body:
-        post('/carts')
-        Request body:
         {
             "order_id": 1,
             "product_id": 1,
             "quantity": 1
         }
-
-- Show Cart [token required]
-    get('/carts/:id')
+- Show Cart route: '/carts/:id' [GET] [token required]
 
 ## Data Shapes
 #### Product
