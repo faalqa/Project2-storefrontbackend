@@ -31,16 +31,6 @@ const client = new Pool ({
     password: variables.password,
 })
 
-// if (ENV === 'test') {
-//     client = new Pool ({
-//         host: POSTGRESS_HOST,
-//         database: POSTGRESS_TEST_DB,
-//         user: POSTGRESS_USER,
-//         password: POSTGRESS_PASSWORD,
-//     })
-// }
-
-
 export default client
 
 

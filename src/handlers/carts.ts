@@ -24,6 +24,7 @@ const addToCart = async (req: Request, res: Response) => {
         }
 
         const newCart = await carts.addToCart(cart)
+        res.status(201)
         res.json(newCart)
     } catch(err) {
         res.status(400)

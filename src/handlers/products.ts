@@ -23,6 +23,7 @@ const create = async (req: Request, res: Response) => {
         }
 
         const newProduct = await products.create(product)
+        res.status(201)
         res.json(newProduct)
     } catch(err) {
         res.status(400)

@@ -27,6 +27,7 @@ const create = async (req: Request, res: Response) => {
 
         const newUser = await users.create(user)
         const token = jwt.sign(newUser, process.env.JWT_KEY as string)
+        res.status(201)
         res.json({newUser, token})
     } catch(err) {
         res.status(400)

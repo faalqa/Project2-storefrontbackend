@@ -11,8 +11,8 @@ export type TUser = {
     firstname: string;
     lastname: string;
     email: string;
-    password: string;
-    ceated_at?: string;
+    password?: string;
+    created_at?: string;
 }
 export class User {
     async index(): Promise<TUser[]> {
@@ -42,8 +42,8 @@ export class User {
     async create(user: TUser): Promise<TUser[]> {
         try {
             const connection = await Client.connect()
-            const sql = 'INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING *'
-            const hash = bcrypt.hashSync(user.password + BCRYPT_PASSWORD, parseInt(SALT_ROUNDS as string));
+            const sql = 'INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING (firstname, lastname, email)'
+            const hash = bcrypt.hashSync(user.password as string + BCRYPT_PASSWORD, parseInt(SALT_ROUNDS as string));
             const result = await connection.query(sql, [user.firstname, user.lastname, user.email, hash])
             const createdUser = result.rows[0]
             connection.release()
