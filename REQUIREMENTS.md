@@ -75,3 +75,5 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## Database Schema
 
+![store_database_schema](https://user-images.githubusercontent.com/59806790/203865215-2e6e910c-0943-454b-854d-5d48f8e78696.jpg)
+
