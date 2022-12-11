@@ -10,12 +10,25 @@ npm install
 
 ### 2.  DB Creation and Migrations
 ```
+postgres database is running on the default port 5432
+
+create dev database and test database
+
+
+ex: 
+
+CREATE DATABASE store_database;
+
+
+CREATE DATABASE test_database;
+
+
 cp .env.example .env
 ```
 Now, replace .env with your credentials and then run
 
 ``` 
-npm run migrate:up
+db-migrate up
 ```
 
 ### 3. Starting the project
