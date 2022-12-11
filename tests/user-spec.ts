@@ -5,6 +5,17 @@ import app from '../src/server'
 const user = new User()
 
 describe('User Unit Test', function() {
+  
+  // beforeAll(function() {
+  //   // create user
+  //   user.create({
+  //     firstname: 'test',
+  //     lastname: 'user',
+  //     email: 'testuser@email.com',
+  //     password: '12345678'
+  //   })
+  // });
+
   describe('Testing User Functions', function() {
     
     
@@ -57,7 +68,7 @@ describe('User Unit Test', function() {
       const response = await supertest(app)
         .post('/login')
         .send({
-          email: 'user1@email.com',
+          email: 'testuser@email.com',
           password: '12345678'
         });
       expect(response.statusCode).toBe(200);

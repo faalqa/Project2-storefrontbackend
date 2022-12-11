@@ -6,6 +6,22 @@ import app from '../src/server'
 const order = new Order()
 
 describe('Order Unit Test', function() {
+  
+  // beforeAll(function() {
+  //   // create user
+  //   user.create({
+  //     firstname: 'test',
+  //     lastname: 'user',
+  //     email: 'testorder@email.com',
+  //     password: '12345678'
+  //   })
+  //   // create order
+  //   order.create({
+  //     user_id: 1,
+  //     status: 'Active'
+  //   })
+  // });
+
   describe('Testing Order Functions', function() {
     
     it('should have an index method', () => {

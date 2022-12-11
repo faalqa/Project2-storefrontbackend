@@ -1,11 +1,38 @@
 import { Cart } from '../src/models/cart'
+import { Product } from '../src/models/product'
+import { Order } from '../src/models/order'
+import { User } from '../src/models/user'
 import supertest from 'supertest'
 import app from '../src/server'
 
 
 const cart = new Cart()
+const product = new Product()
+const order = new Order()
+const user = new User()
 
 describe('Cart Unit Test', function() {
+  
+  beforeAll(async function() {
+    // create product
+    await product.create({
+      name: 'Test Product',
+      price: 30
+    })
+    // create user
+    await user.create({
+      firstname: 'test',
+      lastname: 'user',
+      email: 'testuser@email.com',
+      password: '12345678'
+    })
+    // create order
+    await order.create({
+      user_id: 1,
+      status: 'Active'
+    })
+  });
+
   describe('Testing Cart Functions', function() {
     
     it('should have an index method', () => {
