@@ -5,14 +5,24 @@ import authorization from '../middlewares/authorization'
 const orders = new Order()
 
 const index = async (_req: Request, res: Response) => {
-    const ordersList = await orders.index()
-    res.json(ordersList)
+    try {
+       const ordersList = await orders.index()
+        res.json(ordersList) 
+    } catch (error) {
+        res.status(400)
+        res.json(error)
+    }
 } 
 
 
 const show = async (req: Request, res: Response) => {
-    const order = await orders.show(req.params.id)
-    res.json(order)
+    try {
+        const order = await orders.show(req.params.id)
+        res.json(order)
+    } catch (error) {
+        res.status(400)
+        res.json(error)
+    } 
 }
 
 const create = async (req: Request, res: Response) => {
@@ -25,9 +35,9 @@ const create = async (req: Request, res: Response) => {
         const newOrder = await orders.create(order)
         res.status(201)
         res.json(newOrder)
-    } catch(err) {
+    } catch(error) {
         res.status(400)
-        res.json(err)
+        res.json(error)
     }
 }
 

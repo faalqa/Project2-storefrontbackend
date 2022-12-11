@@ -6,14 +6,24 @@ import authorization from '../middlewares/authorization'
 const users = new User()
 
 const index = async (_req: Request, res: Response) => {
-    const usersList = await users.index()
-    res.json(usersList)
+    try {
+        const usersList = await users.index()
+        res.json(usersList)
+    } catch (error) {
+        res.status(400)
+        res.json(error)
+    } 
 } 
 
 
 const show = async (req: Request, res: Response) => {
-    const user = await users.show(req.params.id)
-    res.json(user)
+    try {
+        const user = await users.show(req.params.id)
+        res.json(user)
+    } catch (error) {
+        res.status(400)
+        res.json(error)
+    }
 }
 
 const create = async (req: Request, res: Response) => {
@@ -29,9 +39,9 @@ const create = async (req: Request, res: Response) => {
         const token = jwt.sign(newUser, process.env.JWT_KEY as string)
         res.status(201)
         res.json({newUser, token})
-    } catch(err) {
+    } catch(error) {
         res.status(400)
-        res.json(err)
+        res.json(error)
     }
 }
 
@@ -51,9 +61,9 @@ const login = async (req: Request, res: Response) => {
         } else {
             res.send('Invalid Credentials!')
         }
-    } catch(err) {
+    } catch(error) {
         res.status(400)
-        res.json(err)
+        res.json(error)
     }
 }
 

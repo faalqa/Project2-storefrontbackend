@@ -5,14 +5,24 @@ import authorization from '../middlewares/authorization'
 const carts = new Cart()
 
 const index = async (_req: Request, res: Response) => {
-    const cartsList = await carts.index()
-    res.json(cartsList)
+    try {
+        const cartsList = await carts.index()
+        res.json(cartsList)
+    } catch (error) {
+        res.status(400)
+        res.json(error) 
+    }
 } 
 
 
 const show = async (req: Request, res: Response) => {
-    const cart = await carts.show(req.params.id)
-    res.json(cart)
+    try {
+        const cart = await carts.show(req.params.id)
+        res.json(cart)
+    } catch (error) {
+        res.status(400)
+        res.json(error)
+    }
 }
 
 const addToCart = async (req: Request, res: Response) => {
@@ -26,9 +36,9 @@ const addToCart = async (req: Request, res: Response) => {
         const newCart = await carts.addToCart(cart)
         res.status(201)
         res.json(newCart)
-    } catch(err) {
+    } catch(error) {
         res.status(400)
-        res.json(err)
+        res.json(error)
     }
 }
 
