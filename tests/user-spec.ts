@@ -6,15 +6,15 @@ const user = new User()
 
 describe('User Unit Test', function() {
   
-  // beforeAll(function() {
-  //   // create user
-  //   user.create({
-  //     firstname: 'test',
-  //     lastname: 'user',
-  //     email: 'testuser@email.com',
-  //     password: '12345678'
-  //   })
-  // });
+  beforeAll(function() {
+    // create user
+    user.create({
+      firstname: 'test',
+      lastname: 'user2',
+      email: 'testuser2@email.com',
+      password: '12345678'
+    })
+  });
 
   describe('Testing User Functions', function() {
     

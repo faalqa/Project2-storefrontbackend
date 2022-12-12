@@ -1,26 +1,28 @@
 import { Order } from '../src/models/order'
+import { User } from '../src/models/user'
 import supertest from 'supertest'
 import app from '../src/server'
 
 
 const order = new Order()
+const user = new User()
 
 describe('Order Unit Test', function() {
   
-  // beforeAll(function() {
-  //   // create user
-  //   user.create({
-  //     firstname: 'test',
-  //     lastname: 'user',
-  //     email: 'testorder@email.com',
-  //     password: '12345678'
-  //   })
-  //   // create order
-  //   order.create({
-  //     user_id: 1,
-  //     status: 'Active'
-  //   })
-  // });
+  beforeAll(function() {
+    // create user
+    user.create({
+      firstname: 'test',
+      lastname: 'user',
+      email: 'testorder@email.com',
+      password: '12345678'
+    })
+    // create order
+    order.create({
+      user_id: 1,
+      status: 'Active'
+    })
+  });
 
   describe('Testing Order Functions', function() {
     

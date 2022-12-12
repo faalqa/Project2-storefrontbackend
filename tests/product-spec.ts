@@ -7,6 +7,14 @@ const product = new Product()
 
 describe('Product Unit Test', function() {
 
+  beforeAll(async function() {
+    // create product
+    await product.create({
+      name: 'Test Product2',
+      price: 30
+    })
+  });
+
   describe('Testing Product Functions', function() {
     
     it('should have an index method', () => {
