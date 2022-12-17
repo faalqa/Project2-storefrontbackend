@@ -1,11 +1,13 @@
 import { Product } from '../src/models/product'
+import { User } from '../src/models/user'
 import supertest from 'supertest'
 import app from '../src/server'
+import jwt from 'jsonwebtoken'
 
-
+const user = new User()
+let newUser 
+let token = ''
 const product = new Product()
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3RuYW1lIjoiTm9vciIsImxhc3RuYW1lIjoiTm9vciIsImVtYWlsIjoibm9vckBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRlZy5HWnVzYmlURjluMWJoV29kU1lPUDd2NTYvdVBnQTVLWE85eTMzYWhXM3JaVWtoeWhTRyIsImNyZWF0ZWRfYXQiOiIyMDIyLTEyLTA2VDIwOjI4OjA2LjMxNloiLCJpYXQiOjE2NzAzNTg0ODZ9.MB_CM6HBfF72Qw-7MA9RCdwS-eB3-FHXhLoYbnsRTcA'
-
 
 describe('Product Unit Test', function() {
 
@@ -15,6 +17,14 @@ describe('Product Unit Test', function() {
       name: 'Test Product2',
       price: 30
     })
+    // create user
+    newUser = await user.create({
+      firstname: 'test',
+      lastname: 'user2',
+      email: 'testproduct@email.com',
+      password: '12345678'
+    })
+    token = jwt.sign(newUser, process.env.JWT_KEY as string)
   });
 
   describe('Testing Product Functions', function() {
