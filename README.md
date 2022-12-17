@@ -25,9 +25,10 @@ CREATE DATABASE test_database;
 
 cp .env.example .env
 ```
-Now, replace .env with your credentials and then run
 
 Note that BCRYPT_PASSWORD, SALT_ROUNDS, and JWT_KEY values in .env.example affect the authorization token used in the test
+
+Now, replace .env with your credentials and then run
 
 ``` 
 db-migrate up
